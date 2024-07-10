@@ -1,11 +1,11 @@
 body {
     background-image: url(/img/jogadores.jpg);
     font-family: Arial, sans-serif;
+    color: #ffffff;
 }
 
 header {
     position: relative;
-    margin-bottom: 2rem;
 }
 
 .logo-container {
@@ -42,9 +42,17 @@ header {
 }
 
 h1,
-h2,
 h3 {
-    color: #ffffff;
+    width: fit-content;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .grid-container {
@@ -152,12 +160,12 @@ textarea::placeholder {
 
 .modal-content {
     background-color: #1a1a1a;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
     width: 100vw;
     max-width: 90vw;
-    max-height: 80vh;
+    max-height: 90vh;
     color: #ffffff;
     overflow-y: auto;
 }
@@ -213,4 +221,45 @@ ul {
 
 .mb-4 {
     margin-bottom: 1rem;
+}
+
+#item-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Para telas menores (celulares) */
+.item-card {
+    flex: 1 1 calc(33% - 0px);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #1a1a1a;
+}
+
+/* Para telas médias (tablets) */
+@media (min-width: 700px) {
+    .item-card {
+        flex: 1 1 calc(30% - 10px);
+    }
+}
+
+/* Para telas grandes (desktops) */
+@media (min-width: 900px) {
+    .item-card {
+        flex: 1 1 calc(20% - 10px);
+    }
+}
+
+.item-card h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.item-card p {
+    margin: 10px 0;
+    font-size: 14px;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Ficha de Personagem</title>
+    <title>Dragon's Grimoire Jogador</title>
     <!--Bootstrap 5-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -52,26 +52,9 @@
                 <button class="btn-min-max" onclick="toggleSection('items-section')">-</button>
             </h2>
             <form id="items-form">
-                <!-- <div class="mb-4">
-                    <label class="block mb-1" for="item-title">Nome</label>
-                    <input class="w-full p-2 border rounded " type="text" id="item" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-1" for="quantity">Quantidade</label>
-                    <input class="w-full p-2 border rounded" type="number" id="quantity" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-1" for="category">Categoria</label>
-                    <select class="w-full p-2 border rounded" id="category" required>
-                        <option value="arma">Arma</option>
-                        <option value="armadura">Armadura</option>
-                        <option value="equipamento">Equipamento</option>
-                        <option value="outros">Outros</option>
-                    </select>
-                </div>
                 <div class="mb-4 text-center">
-                    <button class="px-4 py-2 rounded" type="submit">Buscar Item</button>
-                </div> -->
+                    <button class="px-4 py-2 rounded" onclick="openModal('item-modal')">Buscar Item</button>
+                </div>
             </form>
             <ul id="items-list" class="mt-4"></ul>
         </section>
@@ -99,7 +82,7 @@
                 <div class="mb-2 text-center">
                     <button class="px-4 py-2 rounded" type="submit">Buscar Magia</button>
                 </div> -->
-            </form>
+            </form>         
             <ul id="spells-list" class="mt-4"></ul>
         </section>
         <section class="p-4 rounded shadow-md mb-6" id="exp-imp-section">
@@ -209,27 +192,17 @@
     <!-- Modal para Edição de Item -->
     <div id="item-modal" class="fixed hidden modal" aria-labelledby="item-modal" role="dialog" aria-modal="true">
         <div class="modal-content">
-            <h3 class="text-lg leading-6 font-medium" id="item-modal">Editar Item</h3>
-            <div class="mt-2">
-                <label class="block mb-1" for="edit-item">Item</label>
-                <input class="w-full p-2 border rounded" type="text" id="edit-item" required>
+            <div class="container mb-3">
+                <h1>Busca de Itens</h1>
+                <button id="cancel-item" onclick="closeModal('item-modal')" class="btn-danger px-3 py-1 rounded ">Sair</button>
             </div>
-            <div class="mt-2">
-                <label class="block mb-1" for="edit-quantity">Quantidade</label>
-                <input class="w-full p-2 border rounded" type="number" id="edit-quantity" required>
-            </div>
-            <div class="mt-2">
-                <label class="block mb-1" for="edit-category">Categoria</label>
-                <select class="w-full p-2 border rounded" id="edit-category" required>
-                    <option value="arma">Arma</option>
-                    <option value="armadura">Armadura</option>
-                    <option value="equipamento">Equipamento</option>
-                    <option value="outros">Outros</option>
-                </select>
+            <div id="item-list-container" class="form-container2">
+                <h2>Listagem</h2>
+                <input type="text" id="search" placeholder="Pesquisar itens...">
+                <div id="item-cards-container"></div>
             </div>
             <div class="px-4 py-3 text-right">
-                <button id="save-item" class="px-2 py-1 rounded">Salvar</button>
-                <button id="cancel-item" class="btn-danger px-2 py-1 rounded">Cancelar</button>
+                <button id="cancel-item" onclick="closeModal('item-modal')" class="btn-danger px-3 py-1 rounded">Sair</button>
             </div>
         </div>
     </div>
@@ -290,10 +263,12 @@
             </div>
         </div>
     </div>
-    <script src="jogador.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="js/jogador.js"></script>
+    <script type="module" src="../bd.js"></script>
+    <script type="module" src="/Jogador/js/jogadorItem.js"></script>
+    
+    <!-- Link do script do Bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
