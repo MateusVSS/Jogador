@@ -165,7 +165,7 @@ function deleteSubtopic(index) {
 function exportCharacter() {
     const character = JSON.parse(localStorage.getItem('character'));
     const notes = JSON.parse(localStorage.getItem('notes')) || [];
-    
+
     if (character) {
         const dataToExport = {
             character,
@@ -188,11 +188,11 @@ function exportCharacter() {
 function importCharacter(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
-    
-    reader.onload = function(e) {
+
+    reader.onload = function (e) {
         const importedData = JSON.parse(e.target.result);
         const { character, notes } = importedData;
-        
+
         if (character) {
             localStorage.setItem('character', JSON.stringify(character));
             displayCharacter();

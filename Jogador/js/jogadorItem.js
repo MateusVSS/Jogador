@@ -41,7 +41,7 @@ function filterItems(items, searchText) {
 // Esperar o DOM estar completamente carregado
 document.addEventListener('DOMContentLoaded', async () => {
     const items = await fetchItems();
-    displayItems(items); 
+    displayItems(items);
 
     const searchInput = document.getElementById('search');
     if (searchInput) {
